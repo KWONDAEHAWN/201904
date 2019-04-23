@@ -5,7 +5,8 @@ public class Var {
 		public Var() {
 			
 			var();
-		}// 기본생성자
+		}// 기본생성자 // 리턴유형이 없기 때문에
+		
 	// 리턴유형 함수명(매계변수) 로직 구현
 	//   void var()        {}	
 		
