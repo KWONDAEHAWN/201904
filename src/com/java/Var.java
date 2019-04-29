@@ -10,6 +10,11 @@ public class Var {
 	// 리턴유형 함수명(매계변수) 로직 구현
 	//   void var()        {}	
 		
+		public int state1;
+		protected int state2;
+		int state3;
+		private int state4;
+		
 		public void  var()	      {
 
 		int a; // 1
@@ -25,6 +30,9 @@ public class Var {
 		d = b;
 		e = c + d;
 		System.out.println(e * 2);
-
+}
+		void var2(int a, int b) {
+			System.out.println(a + b);
+		
 	}
 }
