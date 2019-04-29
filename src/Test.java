@@ -1,7 +1,10 @@
+import com.java.Var;
 
 public class Test {
 	
-	public void main(String[] args) {
+
+
+	public static void main(String[] args) {
 		
 		System.out.println("HELLO WORLD!");
 		
@@ -31,6 +34,11 @@ public class Test {
 		double d = 10.5;
 		System.out.println("f = " + f);
 		System.out.println("d = " + d);
+		
+		Var v = new Var();
+		
+		
+		
 		
 		
 	}
