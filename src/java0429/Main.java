@@ -15,6 +15,8 @@ public class Main {
 	
 //	boolean result = 배열1.t5(2,1,2,1);
 //	System.out.println(result);
-	배열1.t6();
+//	배열1.t6();
+//	배열1.game2();
+	배열1.ga2();
 	}
 }

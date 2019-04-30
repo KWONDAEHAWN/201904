@@ -3,7 +3,7 @@ package java0429;
 import java.util.Scanner;
 
 public class ¹è¿­ {
-
+;
 
 	public void t1() {
 		
@@ -103,6 +103,7 @@ public class ¹è¿­ {
 	public boolean t5(int aX, int aY, int bX, int bY) {
 
 		boolean result = false;
+				
 		int [][] ¸Ê = {
 				{0,0,0,0,0,0,0,0,0,0},
 				{0,1,1,1,1,1,1,1,1,0},
@@ -111,27 +112,35 @@ public class ¹è¿­ {
 				{0,1,1,0,0,0,1,0,1,0},
 				{0,1,1,0,0,0,1,1,1,0},
 				{0,1,0,0,1,0,1,0,1,0},
-				{0,1,1,1,1,1,1,0,1,0},
+				{0,1,1,1,1,1,1,0,3,0},
 				{0,0,0,0,0,0,0,0,0,0},
 		};
 		
 		for(int y = 0; y < ¸Ê.length; y++) {
+			
 			for(int x = 0; x < ¸Ê[y].length; x++) {
 				
 				if(¸Ê[aY][aX] == 0) {
 					aY = bY;
 					aX = bX;
-					result = true;
+				
+				
+				result = true;
+
 				}
 				
-	
+
 				if(y == aY && x == aX){
 					System.out.print(" ¢¾ ");
 				}else if(¸Ê[y][x] == 1) {
 					System.out.print(" ¡à ");
+				}else if(¸Ê[y][x] == 3) {
+					System.out.print(" ¢À ");
 				}else { 
 					System.out.print(" ¡á ");
+
 				}
+
 			}
 			System.out.println();
 		}
@@ -167,12 +176,195 @@ public class ¹è¿­ {
 			if (t5(aX,aY, bX,bY)) { // ÀÌµ¿À» À§ÇÏ¿© È£Ãâ ºÎºÐ
 				aX = bX;
 				aY = bY;
-			} else {
+			}else {
 				bX = aX;
 				bY = aY;
 			}
+			if (aY == 7 && aX == 8) 
+				break;		
+
+			} 
+		System.out.println("¿Õ ¸Ô¾ù´ç");
 
 		}
+
+
+	public boolean game(int aX, int aY, int bX, int bY) {
 		
+		boolean result = false;
+					
+		int [][] ¸Ê = {
+				{0,0,0,0,0,0,0,0,0,0},
+				{0,1,1,4,1,1,1,0,3,0},
+				{0,1,1,1,1,1,0,0,1,0},
+				{0,0,0,0,4,1,0,4,1,0},
+				{0,1,0,1,1,1,0,1,1,0},
+				{0,1,1,1,1,4,0,1,4,0},
+				{0,1,0,0,0,0,0,1,1,0},
+				{0,1,1,4,1,1,1,0,1,0},
+				{0,0,1,1,1,0,1,1,1,0},
+				{0,0,0,0,0,0,0,0,0,0}
+		};
+	
+		for(int y = 0; y < ¸Ê.length; y++) {
+			
+			for(int x = 0; x < ¸Ê[y].length; x++) {
+									
+					if(¸Ê[aY][aX] == 0) {
+					aY = bY;
+					aX = bX;
+				
+				result = true;
+
+				}
+					
+
+				if(y == aY && x == aX){
+					System.out.print(" ¢¾ ");
+				}else if(¸Ê[y][x] == 1) {
+					System.out.print(" ¡à ");
+				}else if(¸Ê[y][x] == 3) {
+					System.out.print(" ¢À ");
+				}else if(¸Ê[y][x] == 4) {
+					System.out.print(" * ");
+				}else { 
+					System.out.print(" ¡á ");
+				}
+
+			}
+				System.out.println();
+		}
+		
+		return result;
 	}
-}
+		public void game2() {
+			Scanner scan =new Scanner(System.in);
+			int aX = 1;
+			int aY = 1;
+			int bX = 1;
+			int bY = 1;
+			game(aX,aY, bX,bY); //Ã³À½ À§Ä¡ ½ÃÀÛÀ» À§ÇÏ¿© ÇÊ¿äÇÑ È£ÃâºÎºÐ
+			while(true) {
+				String input = scan.next();
+				switch (input.toUpperCase()) {
+				case "W": //À§
+					aY--;		
+					break;
+				case "S": //¾Æ·¡
+					aY++;		
+					break;
+				case "A": //¿ÞÂÊ
+					aX--;		
+					break;
+				case "D": //¿À¸¥ÂÊ
+					aX++;		
+					break;
+				default:
+					break;
+				}
+				System.out.println(aY + "," + aX + "," + bY + "," + bX);
+				if (game(aX,aY, bX,bY)) { // ÀÌµ¿À» À§ÇÏ¿© È£Ãâ ºÎºÐ
+					aX = bX;
+					aY = bY;
+				}else {
+					bX = aX;
+					bY = aY;
+				}
+
+				if (aY == 1 && aX == 8) break;
+				if (aY == 1 && aX == 3) break;
+				if (aY == 3 && aX == 4) break;
+				if (aY == 5 && aX == 5) break;
+				if (aY == 7 && aX == 3) break;
+				if (aY == 5 && aX == 8) break;
+				if (aY == 3 && aX == 7) break;
+				} 
+			System.out.println("¿Õ ³¡³ªµû");
+		}
+		
+
+			public boolean ga(int aX, int aY, int bX, int bY) {
+				
+				boolean result = false;
+							
+				int [][] ¸Ê = {
+						{0,0,0,0,0,0,0},
+						{0,1,1,0,0,1,0},
+						{0,1,1,0,1,1,0},
+						{0,1,0,0,0,0,0},
+						{0,1,0,0,1,1,0},
+						{0,1,1,1,1,1,0},
+						{0,0,0,0,0,0,0},
+						
+				};
+			
+				for(int y = 0; y < ¸Ê.length; y++) {
+					
+					for(int x = 0; x < ¸Ê[y].length; x++) {
+											
+							if(¸Ê[aY][aX] == 0) {
+							aY = bY;
+							aX = bX;
+						
+						result = true;
+
+						}
+							
+
+						if(y == aY && x == aX){
+							System.out.print(" ¢¾ ");
+						}else if(¸Ê[y][x] == 1) {
+							System.out.print(" ¡à ");
+						}else if(¸Ê[y][x] == 3) {
+							System.out.print(" ¢À ");
+						}else { 
+							System.out.print(" ¡á ");
+						}
+
+					}
+						System.out.println();
+				}
+				
+				return result;
+			}
+				public void ga2() {
+					Scanner scan =new Scanner(System.in);
+					int aX = 1;
+					int aY = 1;
+					int bX = 1;
+					int bY = 1;
+					ga(aX,aY, bX,bY); //Ã³À½ À§Ä¡ ½ÃÀÛÀ» À§ÇÏ¿© ÇÊ¿äÇÑ È£ÃâºÎºÐ
+					while(true) {
+						String input = scan.next();
+						switch (input.toUpperCase()) {
+						case "W": //À§
+							aY--;		
+							break;
+						case "S": //¾Æ·¡
+							aY++;		
+							break;
+						case "A": //¿ÞÂÊ
+							aX--;		
+							break;
+						case "D": //¿À¸¥ÂÊ
+							aX++;		
+							break;
+						default:
+							break;
+						}
+						System.out.println(aY + "," + aX + "," + bY + "," + bX);
+						if (ga(aX,aY, bX,bY)) { // ÀÌµ¿À» À§ÇÏ¿© È£Ãâ ºÎºÐ
+							aX = bX;
+							aY = bY;
+						}else {
+							bX = aX;
+							bY = aY;
+						}
+
+						if (aY == 1 && aX == 5) break;
+						} 
+					System.out.println("¿Õ ³¡³ªµû");
+				}
+		}
+
+
